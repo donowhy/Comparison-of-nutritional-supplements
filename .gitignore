@@ -1,0 +1,17 @@
+.env
+.env.local
+node_modules/
+.next/
+out/
+build/
+.gradle/
+bin/
+*.class
+*.jar
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+logs/
+/backend/batch/seo/build/
+/frontend/.next/
