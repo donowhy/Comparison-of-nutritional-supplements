@@ -1,14 +1,19 @@
 spring:
+  config:
+    # [중요] 이 코드가 바로 옆에 있는 .env 파일을 읽어오는 핵심 코드입니다!
+    import: "optional:file:.env[.properties]"
+
   datasource:
+    # 위 .env에서 가져온 ${DB_HOST} 등을 사용합니다.
     url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3307}/${DB_NAME:nutrient_analysis}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:adminpassword1!}
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false # 보안을 위해 쿼리 로그는 끔
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -21,4 +26,5 @@ spring:
 
 gemini:
   api:
+    # .env의 GEMINI_API_KEY 값을 가져옵니다.
     key: ${GEMINI_API_KEY}

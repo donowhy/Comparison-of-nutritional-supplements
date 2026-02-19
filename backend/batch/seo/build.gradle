@@ -21,7 +21,8 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-batch'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux' // Gemini API 호출용
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0' // .env 로드용 라이브러리 추가
     runtimeOnly 'com.mysql:mysql-connector-j'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
